@@ -26,9 +26,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view("admin.projects.create");
+        return view("admin.projects.create", ['projects' => Project::all(), "project" => $project]);
     }
 
     /**
@@ -37,9 +37,14 @@ class ProjectController extends Controller
      * @param  \App\Http\Requests\StoreprojectRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProjectRequest $request)
+    public function store(StoreProjectRequest $request, Project $project)
     {
-        //
+        $newProject = new Project();
+        $newProject->title = $request["title"];
+        $newProject->author = $request["author"];
+        $newProject->deadline = $request["deadline"];
+        $newProject->save();
+        return to_route("cproject.index");
     }
 
     /**
@@ -68,11 +73,12 @@ class ProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateprojectRequest  $request
-     * @param  \App\Models\project  $project
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+
         $data = [
             'title' => $request['title'],
             'author' => $request['author'],

@@ -7,6 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Create</h1>
+<form action="{{route('projects.update', $project->id)}}" method="post">
+        @csrf
+        @method("put")
+        <label for="title">title</label>
+        <input type="text" name="title" id="title" value="{{old('title')}}">
+        <label for="author">author</label>
+        <input type="text" name="author" id="author" value="{{old('author')}}">
+        <label for="deadline">deadline</label>
+        <input type="text" name="deadline" id="deadline" value="{{old('deadline')}}">
+
+        <button type="submit">send</button>
+
+    </form>
 </body>
 </html>
