@@ -61,8 +61,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        $projects = Project::all();
-        return view("admin.projects.edit", compact("projects"));
+        return view("admin.projects.edit", ['projects' => Project::all(), "project" => $project]);
     }
 
     /**
