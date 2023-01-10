@@ -17,8 +17,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
-        return view("admin.projects.index");
+        $projects = Project::all();
+        return view("admin.projects.index", compact("projects"));
     }
 
     /**
@@ -56,12 +56,13 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\project  $project
+     * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(project $project)
+    public function edit(Project $project)
     {
-        //
+        $projects = Project::all();
+        return view("admin.projects.edit", compact("projects"));
     }
 
     /**
@@ -71,9 +72,17 @@ class ProjectController extends Controller
      * @param  \App\Models\project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(/*UpdateprojectRequest $request, project $project*/)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = [
+            'title' => $request['title'],
+            'author' => $request['author'],
+            'deaadline' => $request['deadline'],
+        ];
+
+        $project->update($data);
+
+        return to_route('projects.index');
     }
 
     /**
