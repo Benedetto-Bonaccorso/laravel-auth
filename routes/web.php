@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\http\controllers\admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,8 @@ Route::get('/dashboard', function () {
 Route::get('/homePage', function () {
     return view('homePage');
 })->middleware(['auth', 'verified'])->name('homePage');
+
+Route::resource("admin/projects", ProjectController::class);
 
 /*
 Route::middleware('auth')->group(function () {

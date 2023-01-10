@@ -15,6 +15,10 @@
                     @endif
 
                     {{ __('Grazie per aver effettuato il log in') }}
+
+                    <hr>
+
+                    <p>Clicca qui per andare all'indice dei tuoi progetti: <a href="#">Indice</a></p>
                 </div>
             </div>
         </div>
