@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="..../scss/app.scss">
 </head>
 <body>
-    <h1>Index</h1>
+    <h1 class="esempio">Index</h1>
     
-    <h1><a href="{{route('projects.create')}}" class="btn">crea elementi</a></h1>
+    <h1><a href="{{route('projects.create')}}">crea elementi</a></h1>
 
     <div class="table-responsive">
         <table class="table table-primary">
@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 @foreach($projects as $project)
-                    <tr class="">
+                    <tr>
                         <td scope="row">{{$project->id}}</td>
                         <td>{{$project->title}}</td>
                         <td>{{$project->author}}</td>
