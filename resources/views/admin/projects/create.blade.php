@@ -7,15 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-<form action="{{route('projects.update', $project->id)}}" method="post">
+<form action="{{route('projects.store')}}" method="post">
         @csrf
-        @method("put")
+        
         <label for="title">title</label>
-        <input type="text" name="title" id="title" value="{{old('title')}}">
+        <input type="text" title="title" name="title" id="title" value="{{old('title')}}">
         <label for="author">author</label>
-        <input type="text" name="author" id="author" value="{{old('author')}}">
+        <input type="text" title="author" name="author" id="author" value="{{old('author')}}">
         <label for="deadline">deadline</label>
-        <input type="text" name="deadline" id="deadline" value="{{old('deadline')}}">
+        <input type="text" title="author" name="deadline" id="deadline" value="{{old('deadline')}}">
 
         <button type="submit">send</button>
 
