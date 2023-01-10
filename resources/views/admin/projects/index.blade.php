@@ -30,7 +30,18 @@
                         <td>{{$project->title}}</td>
                         <td>{{$project->author}}</td>
                         <td>{{$project->deadline}}</td>
-                        <td>View <a href="{{route('projects.edit', $project->id)}}">Edit</a> Delete</td>
+                        <td>View    
+                            
+                            <a href="{{route('projects.edit', $project->id)}}">Edit</a>                             
+                        
+                            <form action="{{route('projects.destroy', $project->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
