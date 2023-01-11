@@ -14,11 +14,11 @@
                     </div>
                     @endif
 
-                    {{ __('Grazie per aver effettuato il log in') }}
-
+                    {{ __('Grazie ') }}{{ Auth::user()->name }} {{ __('per aver effettuato il log in') }}
+                    
                     <hr>
 
-                    <p>Clicca qui per andare all'indice dei tuoi progetti: <a href="{{route('projects.index')}}">Indice</a></p>
+                    <p>Clicca qui per andare all'indice dei tuoi progetti: <a href="{{route('projects.index')}}" class="btn bg-primary text-white">Indice</a></p>
                 </div>
             </div>
         </div>

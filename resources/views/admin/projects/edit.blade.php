@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if ($errors->any())
+    <div class="py-2 bg-warning my-2">
+            @foreach ($errors->all() as $error)
+                <p class="mx-5 mt-4">{{ $error }}</p>
+            @endforeach
+    </div>
+@endif
+
 <form action="{{route('projects.update', $project->id)}}" method="post">
         @csrf
         @method("put")
@@ -15,3 +24,4 @@
 
     </form>
 @endsection
+
