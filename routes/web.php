@@ -24,6 +24,7 @@ Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard
 
 Route::get('/homePage', function () {
     return view('homePage');
+    
 })->middleware(['auth', 'verified'])->name('homePage');
 
 Route::resource("admin/projects", ProjectController::class)->middleware(["auth", "verified"])->name("admin", "dashboard");
@@ -38,20 +39,3 @@ Route::middleware('auth')->group(function () {
 */
 
 require __DIR__.'/auth.php';
-
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard');
-
-Route::middleware(["auth", "verified"])->name("admin")->prefix("admin")->group(function(){
-
-    Route::get("/", [DashboardController::class, 'index'])->name("dashboard");
-    Route::resource("posts", PostController::class)->parameters([
-        "posts" => "post:slug"
-    ]);
-
-});
