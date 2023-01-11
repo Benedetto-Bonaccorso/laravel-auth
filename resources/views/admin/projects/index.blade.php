@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="..../scss/app.scss">
-</head>
-<body>
-    <h1 class="esempio">Index</h1>
-    
-    <h1><a href="{{route('projects.create')}}">crea elementi</a></h1>
+@extends('layouts.app')
+
+@section('content')
+    <h1><a href="{{route('projects.create')}}" class="btn text-decoration-none bg-success text-white w-25 m-2">crea elementi</a></h1>
 
     <div class="table-responsive">
         <table class="table table-primary">
@@ -30,14 +21,15 @@
                         <td>{{$project->title}}</td>
                         <td>{{$project->author}}</td>
                         <td>{{$project->deadline}}</td>
-                        <td>View    
+                        <td>
+                            <a href="{{route('projects.show', $project->id)}}" class="btn bg-primary text-white w-100 my-2">View</a>    
                             
-                            <a href="{{route('projects.edit', $project->id)}}">Edit</a>                             
+                            <a href="{{route('projects.edit', $project->id)}}" class="btn bg-dark text-white w-100 my-2">Edit</a>                             
                         
-                            <form action="{{route('projects.destroy', $project->id)}}" method="post">
+                            <form action="{{route('projects.destroy', $project->id)}}" method="post" class="">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">
+                                <button type="submit" class="btn bg-danger text-white w-100 my-2">
                                     Delete
                                 </button>
                             </form>
@@ -48,5 +40,4 @@
         </table>
         
     </div>
-</body>
-</html>
+@endsection

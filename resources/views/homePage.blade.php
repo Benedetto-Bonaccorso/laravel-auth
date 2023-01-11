@@ -18,7 +18,7 @@
 
                     <hr>
 
-                    <p>Clicca qui per andare all'indice dei tuoi progetti: <a href="#">Indice</a></p>
+                    <p>Clicca qui per andare all'indice dei tuoi progetti: <a href="{{route('projects.index')}}">Indice</a></p>
                 </div>
             </div>
         </div>

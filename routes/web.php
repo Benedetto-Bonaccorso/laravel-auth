@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\http\controllers\admin\ProjectController;
 use Illuminate\Support\Facades\Route;
@@ -19,14 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('welcome');
-});
+Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard');
 
 Route::get('/homePage', function () {
     return view('homePage');
 })->middleware(['auth', 'verified'])->name('homePage');
-
 
 Route::resource("admin/projects", ProjectController::class)->middleware(["auth", "verified"])->name("admin", "dashboard");
 
