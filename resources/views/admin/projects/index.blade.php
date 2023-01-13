@@ -20,7 +20,7 @@
                     <tr>
                         <td scope="row">{{$project->id}}</td>
                         <td>{{$project->title}}</td>
-                        <td><img src="" alt="{{$project->title}}"></td>
+                        <td><img src="{{asset('storage/' . $project->cover_image)}}" alt="{{$project->title}}"></td>
                         <td>{{$project->author}}</td>
                         <td>{{$project->deadline}}</td>
                         <td>

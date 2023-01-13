@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use illuminate\support\facade\storage;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -44,7 +44,7 @@ class ProjectController extends Controller
 
         $newProject = new Project();
         $newProject->title = $request["title"];
-        $newProject->cover_image = $request["cover_image"];
+        $newProject->cover_image = Storage::disk('public')->put('posts_img', $request->cover);
         $newProject->author = $request["author"];
         $newProject->deadline = $request["deadline"];
         $newProject->save();
