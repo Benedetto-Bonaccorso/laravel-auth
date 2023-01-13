@@ -41,14 +41,14 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         
-
         $newProject = new Project();
         $newProject->title = $request["title"];
-        $newProject->cover_image = Storage::disk('public')->put('posts_img', $request->cover);
+        $newProject->cover_image = Storage::disk('public')->put('projects_img', $request->cover);
         $newProject->author = $request["author"];
         $newProject->deadline = $request["deadline"];
         $newProject->save();
         return to_route("projects.index");
+        
     }
 
     /**
@@ -85,7 +85,7 @@ class ProjectController extends Controller
 
         $data = [
             'title' => $request['title'],
-            'cover_image' => $request['cover_image'],
+            'cover_image' => Storage::disk('public')->put('projects_img', $request->cover),
             'author' => $request['author'],
             'deaadline' => $request['deadline'],
         ];

@@ -10,17 +10,23 @@
     </div>
 @endif
 
-<form action="{{route('projects.update', $project->id)}}" method="post">
+<form action="{{route('projects.update', $project->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method("put")
-        <label for="title">title</label>
-        <input type="text" name="title" id="title" value="{{$project->title}}">
-        <label for="author">author</label>
-        <input type="text" name="author" id="author" value="{{$project->author}}">
-        <label for="deadline">deadline</label>
-        <input type="text" name="deadline" id="deadline" value="{{$project->deadline}}">
 
-        <button type="submit">send</button>
+        <div class="form-group">
+            <label for="cover">Cover Image</label>
+            <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Add a cover image" aria-describedby="coverImgHelper">
+
+            <label for="title">title</label>
+            <input type="text" name="title" id="title" value="{{$project->title}}">
+            <label for="author">author</label>
+            <input type="text" name="author" id="author" value="{{$project->author}}">
+            <label for="deadline">deadline</label>
+            <input type="text" name="deadline" id="deadline" value="{{$project->deadline}}">
+
+            <button type="submit">send</button>
+        </div>
 
     </form>
 @endsection

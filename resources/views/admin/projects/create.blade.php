@@ -16,7 +16,6 @@
         <div class="form-group">
             <label for="cover">Cover Image</label>
             <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Add a cover image" aria-describedby="coverImgHelper">
-            <small id="coverImgHelper" class="form-text text-muted">Add a cover image</small>
         
 
             <label for="title">title</label>
