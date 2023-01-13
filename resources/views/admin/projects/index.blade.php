@@ -3,12 +3,13 @@
 @section('content')
     <h1><a href="{{route('projects.create')}}" class="btn text-decoration-none bg-success text-white w-25 m-2">crea elementi</a></h1>
 
-    <div class="table-responsive">
+    <div class="table-responsive m-2">
         <table class="table table-primary">
             <thead>
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">title</th>
+                    <th scope="col">cover image</th>
                     <th scope="col">author</th>
                     <th scope="col">deadline</th>
                     <th scope="col">actions</th>
@@ -19,6 +20,7 @@
                     <tr>
                         <td scope="row">{{$project->id}}</td>
                         <td>{{$project->title}}</td>
+                        <td><img src="" alt="{{$project->title}}"></td>
                         <td>{{$project->author}}</td>
                         <td>{{$project->deadline}}</td>
                         <td>

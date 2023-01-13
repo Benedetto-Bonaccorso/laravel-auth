@@ -10,17 +10,24 @@
     </div>
 @endif
 
-<form action="{{route('projects.store')}}" method="post">
+<form action="{{route('projects.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         
-        <label for="title">title</label>
-        <input type="text" title="title" name="title" id="title" value="{{old('title')}}">
-        <label for="author">author</label>
-        <input type="text" title="author" name="author" id="author" value="{{old('author')}}">
-        <label for="deadline">deadline</label>
-        <input type="text" title="author" name="deadline" id="deadline" value="{{old('deadline')}}">
+        <div class="form-group">
+            <label for="cover">Cover Image</label>
+            <input type="file" class="form-control-file" name="cover" id="cover" placeholder="Add a cover image" aria-describedby="coverImgHelper">
+            <small id="coverImgHelper" class="form-text text-muted">Add a cover image</small>
+        
 
-        <button type="submit">send</button>
+            <label for="title">title</label>
+            <input type="text" title="title" name="title" id="title" value="{{old('title')}}">
+            <label for="author">author</label>
+            <input type="text" title="author" name="author" id="author" value="{{old('author')}}">
+            <label for="deadline">deadline</label>
+            <input type="text" title="author" name="deadline" id="deadline" value="{{old('deadline')}}">
+
+            <button type="submit">send</button>
+        </div>
 
     </form>
 @endsection
